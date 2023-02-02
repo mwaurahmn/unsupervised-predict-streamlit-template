@@ -47,6 +47,10 @@ title_list = load_movie_titles('resources/data/movies.csv')
 def main():
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
+
+    
+
+
     page_options = ["Recommender System","Solution Overview",'Data Overview']
 
     # -------------------------------------------------------------------
@@ -54,6 +58,8 @@ def main():
     # -------------------------------------------------------------------
     page_selection = st.sidebar.selectbox("Choose Option", page_options)
     if page_selection == "Recommender System":
+        logo = Image.open('resources/imgs/pn.png')
+        st.image(logo)
         # Header contents
         st.write('# Movie Recommender Engine')
         st.write('### EXPLORE Data Science Academy Unsupervised Predict')

@@ -109,7 +109,14 @@ def main():
         st.write("Describe your winning approach on this page")
 
     if page_selection == "Data Overview":
-        st.write(title_list[['title','genres']])
+        def load_data(file_name):
+            return pd.read_csv(file_name)
+
+        file_name = "resources/data/movies.csv"
+        data = load_data(file_name)
+        st.write("## Movies DataSet Overview")
+        st.write(data)
+        #st.write(title_list[['title','genres']])
 
     # You may want to add more sections here for aspects such as an EDA,
     # or to provide your business pitch.

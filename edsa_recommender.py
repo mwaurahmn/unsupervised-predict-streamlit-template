@@ -79,7 +79,7 @@ def main():
                     st.title("We think you'll like:")
                     for i,j in enumerate(top_recommendations):
                         st.subheader(str(i+1)+'. '+j)
-                    st.balloons('Enjoy your movie')
+                    st.balloons()
                 except:
                     st.error("Oops! Looks like this algorithm does't work.\
                               We'll need to fix it!")
@@ -95,7 +95,7 @@ def main():
                     for i,j in enumerate(top_recommendations):
                         st.subheader(str(i+1)+'. '+j)
 
-                    st.balloons('Enjoy your movie')
+                    st.balloons()
                 except Exception as e:
                     st.error(f"Oops! Looks like this algorithm does't work.\
                               We'll need to fix it! Error: {traceback.format_exc()}")

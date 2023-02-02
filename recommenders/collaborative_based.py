@@ -125,15 +125,15 @@ def collab_model(movie_list,top_n=10):
         df_init_users=df_init_users.append(ratings_df[ratings_df['userId']==i])
     # Getting the cosine similarity matrix
     cosine_sim = cosine_similarity(np.array(df_init_users), np.array(df_init_users))
-    idx_1 = indices[indices - movie_list[0]].index[0]
-    idx_2 = indices[indices - movie_list[1]].index[0]
-    idx_3 = indices[indices - movie_list[2]].index[0]
+    idx_1 = indices[indices == movie_list[0]].index[0]
+    idx_2 = indices[indices == movie_list[1]].index[0]
+    idx_3 = indices[indices == movie_list[2]].index[0]
     
     
     # Creating a Series with the similarity scores in descending order
-    rank_1 = cosine_sim[idx_1]
-    rank_2 = cosine_sim[idx_2]
-    rank_3 = cosine_sim[idx_3]
+    rank_1 = cosine_sim[1]
+    rank_2 = cosine_sim[2]
+    rank_3 = cosine_sim[3]
     
     
     # Calculating the scores

@@ -36,6 +36,7 @@ from surprise import Reader, Dataset
 from surprise import SVD, NormalPredictor, BaselineOnly, KNNBasic, NMF
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
+import random
 
 # Importing data
 movies_df = pd.read_csv('resources/data/movies.csv',sep = ',')
@@ -44,6 +45,15 @@ ratings_df.drop(['timestamp'], axis=1,inplace=True)
 
 # We make use of an SVD model trained on a subset of the MovieLens 10k dataset.
 model=pickle.load(open('resources/models/SVD_model.pkl', 'rb'))
+
+def three_numbers():
+    random_numbers = set()
+    while len(random_numbers) < 3:
+        number = random.randint(0, 4000)
+        random_numbers.add(number)
+
+    random_numbers = list(random_numbers)
+    return random_numbers[0],random_numbers[1],random_numbers[2]
 
 def prediction_item(item_id):
     """Map a given favourite movie to users within the
@@ -132,6 +142,8 @@ def collab_model(movie_list,top_n=10):
     idx_2 = min(idx_1,3500)
     idx_3 = indices[indices == movie_list[2]].index[0]
     idx_3 = min(idx_1,4000)
+
+    idx_1,idx_2, idx_3 = three_numbers()
     
     
     # Creating a Series with the similarity scores in descending order

@@ -27,7 +27,7 @@
 """
 # Streamlit dependencies
 import base64
-from tkinter import Image
+from PIL import Image
 import streamlit as st
 
 # Data handling dependencies

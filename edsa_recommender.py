@@ -42,7 +42,6 @@ import traceback
 
 # Data Loading
 title_list = load_movie_titles('resources/data/movies.csv')
-
 # App declaration
 def main():
     # DO NOT REMOVE the 'Recommender System' option below, however,
@@ -80,6 +79,7 @@ def main():
                     st.title("We think you'll like:")
                     for i,j in enumerate(top_recommendations):
                         st.subheader(str(i+1)+'. '+j)
+                    st.balloons('Enjoy your movie')
                 except:
                     st.error("Oops! Looks like this algorithm does't work.\
                               We'll need to fix it!")
@@ -94,6 +94,8 @@ def main():
                     st.title("We think you'll like:")
                     for i,j in enumerate(top_recommendations):
                         st.subheader(str(i+1)+'. '+j)
+
+                    st.balloons('Enjoy your movie')
                 except Exception as e:
                     st.error(f"Oops! Looks like this algorithm does't work.\
                               We'll need to fix it! Error: {traceback.format_exc()}")
@@ -107,7 +109,7 @@ def main():
         st.write("Describe your winning approach on this page")
 
     if page_selection == "Data Overview":
-        pass
+        st.write(title_list)
 
     # You may want to add more sections here for aspects such as an EDA,
     # or to provide your business pitch.

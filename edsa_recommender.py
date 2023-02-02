@@ -27,6 +27,7 @@
 """
 # Streamlit dependencies
 import base64
+from tkinter import Image
 import streamlit as st
 
 # Data handling dependencies
@@ -97,8 +98,8 @@ def main():
 
                     st.balloons()
                 except Exception as e:
-                    st.error(f"Oops! Looks like this algorithm does't work.\
-                              We'll need to fix it! Error: {traceback.format_exc()}")
+                    st.error("Oops! Looks like this algorithm does't work.\
+                              We'll need to fix it!")
 
 
     # -------------------------------------------------------------------
@@ -106,7 +107,13 @@ def main():
     # ------------- SAFE FOR ALTERING/EXTENSION -------------------
     if page_selection == "Solution Overview":
         st.title("Solution Overview")
-        st.write("Describe your winning approach on this page")
+        st.write("##")
+        st.video('https://www.youtube.com/watch?v=f8OK1HBEgn0')
+        st.write("##")
+        st.write("## A quick look at our solution")
+        pic = Image.open('resources/imgs/solution.png')
+        st.image(pic)
+        #st.write("Describe your winning approach on this page")
 
     if page_selection == "Data Overview":
         def load_data(file_name):
@@ -114,7 +121,7 @@ def main():
 
         file_name = "resources/data/movies.csv"
         data = load_data(file_name)
-        st.write("## Movies DataSet Overview")
+        st.write("## Movie Dataset Overview")
         st.write(data)
         #st.write(title_list[['title','genres']])
 

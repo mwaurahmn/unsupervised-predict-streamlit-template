@@ -109,7 +109,7 @@ def main():
         st.write("Describe your winning approach on this page")
 
     if page_selection == "Data Overview":
-        st.write(title_list)
+        st.write(title_list[['title','genres']])
 
     # You may want to add more sections here for aspects such as an EDA,
     # or to provide your business pitch.

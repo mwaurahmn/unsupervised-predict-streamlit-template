@@ -111,7 +111,7 @@ def main():
         st.video('https://www.youtube.com/watch?v=f8OK1HBEgn0')
         st.write("##")
         st.write("## A quick look at our solution")
-        pic = Image.open('resources/imgs/solution.png')
+        pic = Image.open('resources/imgs/solution.PNG')
         st.image(pic)
         #st.write("Describe your winning approach on this page")
 

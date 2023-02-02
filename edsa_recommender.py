@@ -37,6 +37,8 @@ from utils.data_loader import load_movie_titles
 from recommenders.collaborative_based import collab_model
 from recommenders.content_based import content_model
 
+import traceback
+
 # Data Loading
 title_list = load_movie_titles('resources/data/movies.csv')
 
@@ -94,7 +96,7 @@ def main():
                         st.subheader(str(i+1)+'. '+j)
                 except Exception as e:
                     st.error(f"Oops! Looks like this algorithm does't work.\
-                              We'll need to fix it! Error: {e}")
+                              We'll need to fix it! Error: {traceback.format_exc()}")
 
 
     # -------------------------------------------------------------------
